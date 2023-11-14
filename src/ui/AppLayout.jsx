@@ -5,8 +5,12 @@ import styled from "styled-components";
 
 const Main = styled.main`
   //background-color: green;
-  padding: 4rem 4.8rem 6.4rem;
   background-color: var(--color-grey-50);
+  padding: 4rem 4.8rem 6.4rem;
+  //overflow: scroll;
+  width: 100%;
+  height: 100vh; /* Adjust the height as needed */
+  overflow: auto; /* Enable scrolling for the main container */
 
 `;
 
