@@ -1,6 +1,6 @@
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
-import FormRow from "../../ui/FormRow";
+import FormRow from "../../ui/StyledFormRow.jsx";
 import Input from "../../ui/Input";
 
 // Email regex: /\S+@\S+\.\S+/
