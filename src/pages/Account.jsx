@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import {Heading} from "../ui/Heading";
 import Row from "../ui/Row.jsx";
 

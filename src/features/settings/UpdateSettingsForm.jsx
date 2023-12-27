@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import Form from '../../ui/Form';
 import FormRow from '../../ui/StyledFormRow.jsx';
 import Input from '../../ui/Input';

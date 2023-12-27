@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import { getToday } from "../utils/helpers";
 import supabase from "./supabase";
 

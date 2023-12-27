@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import {Heading} from "../ui/Heading";
 
 function Settings() {

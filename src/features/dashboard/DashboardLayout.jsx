@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import styled from "styled-components";
 
 const StyledDashboardLayout = styled.div`
