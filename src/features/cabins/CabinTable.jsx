@@ -1,11 +1,7 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable no-unused-vars */
-
 import styled from "styled-components";
 
-import Spinner from "../../ui/Spinner.jsx";
-import CabinRow from "./CabinRow.jsx";
-
+import Spinner from "../../ui/Spinner";
+import CabinRow from "./CabinRow";
 import {useGetCabins} from "./useGetCabins.js";
 
 const Table = styled.div`
@@ -32,24 +28,26 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-
 function CabinTable() {
-    const {isLoading, cabins, error} = useGetCabins();
-    if (isLoading) return <Spinner/>
+  const {isLoading, cabins} = useGetCabins();
 
-    return (
-        <Table role={"table"}>
-            <TableHeader role={"row"}>
-                <div></div>
-                <div>Cabin</div>
-                <div>Capacity</div>
-                <div>Price</div>
-                <div>Discount</div>
-                <div></div>
-            </TableHeader>
-            {cabins.map(cabin => <CabinRow key={cabin.id} cabin={cabin}/>)}
-        </Table>
-    );
+  if (isLoading) return <Spinner/>;
+
+  return (
+    <Table role="table">
+      <TableHeader role="row">
+        <div></div>
+        <div>Cabin</div>
+        <div>Capacity</div>
+        <div>Price</div>
+        <div>Discount</div>
+        <div></div>
+      </TableHeader>
+      {cabins.map((cabin) => (
+        <CabinRow cabin={cabin} key={cabin.id}/>
+      ))}
+    </Table>
+  );
 }
 
 export default CabinTable;
