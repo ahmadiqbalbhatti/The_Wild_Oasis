@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import Button from "../../ui/Button";
 
 function CheckoutButton({ bookingId }) {

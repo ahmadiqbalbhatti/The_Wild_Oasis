@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import supabase from "./supabase";
 
 export async function getSettings() {

@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import { useState, useEffect } from "react";
 
 export function useLocalStorageState(initialState, key) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
 import TableOperations from "../../ui/TableOperations";

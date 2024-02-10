@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import Filter from 'ui/Filter';
 
 function DashboardFilter() {

@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import {createGlobalStyle} from "styled-components";
 
 const GlobalStyles = createGlobalStyle`

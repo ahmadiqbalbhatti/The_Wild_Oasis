@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+
 import styled from "styled-components";
 
 import { useMoveBack } from "../hooks/useMoveBack";
