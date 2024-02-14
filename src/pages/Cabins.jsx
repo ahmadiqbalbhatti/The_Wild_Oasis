@@ -9,9 +9,14 @@ import {
 import CabinTable from "../features/cabins/CabinTable.jsx";
 import Button from "../ui/Button.jsx";
 import CreateCabinForm from "../features/cabins/CreateCabinForm.jsx";
+import AddCabin from "../features/cabins/AddCabin.jsx";
 
 function Cabins() {
-  const [showForm, setShowForm] = useState(false);
+  const [isOpenForm, setIsOpenForm] = useState(false);
+
+  function handleShowForm() {
+    setIsOpenForm(show => !show);
+  }
 
   return (
     <>
@@ -24,11 +29,12 @@ function Cabins() {
     </Row>
 
       <Row>
-        <CabinTable/>
+        <CabinTable onHandleShowForm={handleShowForm} isOpenForm={isOpenForm}/>
 
-        <Button onClick={()=> setShowForm(showForm => !showForm)}>Add New Cabin</Button>
+        <AddCabin/>
+{/*        <Button onClick={handleShowForm}>Add New Cabin</Button>
 
-        {showForm && <CreateCabinForm/>}
+        {isOpenForm && <CreateCabinForm onHandleShowForm={handleShowForm} isOpenForm={isOpenForm} />}*/}
       </Row>
     </>
   );
