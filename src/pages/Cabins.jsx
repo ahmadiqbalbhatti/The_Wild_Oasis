@@ -10,6 +10,7 @@ import CabinTable from "../features/cabins/CabinTable.jsx";
 import Button from "../ui/Button.jsx";
 import CreateCabinForm from "../features/cabins/CreateCabinForm.jsx";
 import AddCabin from "../features/cabins/AddCabin.jsx";
+import CabinTableOperations from "../features/cabins/CabinTableOperations.jsx";
 
 function Cabins() {
   const [isOpenForm, setIsOpenForm] = useState(false);
@@ -22,7 +23,7 @@ function Cabins() {
     <>
     <Row type="horizontal">
       <Heading as="h1">All cabins</Heading>
-      <p>Filter / Sort</p>
+      <CabinTableOperations/>
       {/*<img*/}
       {/*  src="https://amkrkgrexshfpmnanhhv.supabase.co/storage/v1/object/public/cabin-images/cabin-002.jpg"*/}
       {/*  alt="Testing with supabase"/>*/}

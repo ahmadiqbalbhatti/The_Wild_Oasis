@@ -1,12 +1,17 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import styled from "styled-components";
-import { format, isToday } from "date-fns";
+import {
+  format,
+  isToday
+} from "date-fns";
 
 import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
 
-import { formatCurrency } from "../../utils/helpers";
-import { formatDistanceFromNow } from "../../utils/helpers";
+import {
+  formatCurrency,
+  formatDistanceFromNow
+} from "../../utils/helpers";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -36,32 +41,32 @@ const Amount = styled.div`
 `;
 
 function BookingRow({
-  booking: {
-    id: bookingId,
-    created_at,
-    startDate,
-    endDate,
-    numNights,
-    numGuests,
-    totalPrice,
-    status,
-    guests: { fullName: guestName, email },
-    cabins: { name: cabinName },
-  },
-}) {
+                      booking: {
+                        id: bookingId,
+                        created_at,
+                        startDate,
+                        endDate,
+                        numNights,
+                        numGuests,
+                        totalPrice,
+                        status,
+                        guests,
+                        cabins
+                      }
+                    }) {
   const statusToTagName = {
-    unconfirmed: "blue",
-    "checked-in": "green",
-    "checked-out": "silver",
+    unconfirmed  : "blue",
+    "checked-in" : "green",
+    "checked-out": "silver"
   };
 
   return (
     <Table.Row>
-      <Cabin>{cabinName}</Cabin>
+      <Cabin>{cabins?.name}</Cabin>
 
       <Stacked>
-        <span>{guestName}</span>
-        <span>{email}</span>
+        <span>{guests?.fullName}</span>
+        <span>{guests?.email}</span>
       </Stacked>
 
       <Stacked>

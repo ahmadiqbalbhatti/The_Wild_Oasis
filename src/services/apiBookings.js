@@ -1,10 +1,25 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 
-import { getToday } from "../utils/helpers";
+import {getToday} from "../utils/helpers";
 import supabase from "./supabase";
 
+export async function getBookings() {
+
+  let {data: bookings, error} = await supabase
+    .from("bookings")
+    .select("id, created_at, startDate, endDate, status, numGuests, numNights, totalPrice, "
+            + "cabins(name),"
+            + " guests(fullName, email)");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Bookings could not be loaded");
+  }
+  return bookings;
+}
+
 export async function getBooking(id) {
-  const { data, error } = await supabase
+  const {data, error} = await supabase
     .from("bookings")
     .select("*, cabins(*), guests(*)")
     .eq("id", id)
@@ -18,13 +33,14 @@ export async function getBooking(id) {
   return data;
 }
 
-// Returns all BOOKINGS that are were created after the given date. Useful to get bookings created in the last 30 days, for example.
+// Returns all BOOKINGS that are were created after the given date. Useful to
+// get bookings created in the last 30 days, for example.
 export async function getBookingsAfterDate(date) {
-  const { data, error } = await supabase
+  const {data, error} = await supabase
     .from("bookings")
     .select("created_at, totalPrice, extrasPrice")
     .gte("created_at", date)
-    .lte("created_at", getToday({ end: true }));
+    .lte("created_at", getToday({end: true}));
 
   if (error) {
     console.error(error);
@@ -36,7 +52,7 @@ export async function getBookingsAfterDate(date) {
 
 // Returns all STAYS that are were created after the given date
 export async function getStaysAfterDate(date) {
-  const { data, error } = await supabase
+  const {data, error} = await supabase
     .from("bookings")
     // .select('*')
     .select("*, guests(fullName)")
@@ -53,7 +69,7 @@ export async function getStaysAfterDate(date) {
 
 // Activity means that there is a check in or a check out today
 export async function getStaysTodayActivity() {
-  const { data, error } = await supabase
+  const {data, error} = await supabase
     .from("bookings")
     .select("*, guests(fullName, nationality, countryFlag)")
     .or(
@@ -61,7 +77,8 @@ export async function getStaysTodayActivity() {
     )
     .order("created_at");
 
-  // Equivalent to this. But by querying this, we only download the data we actually need, otherwise we would need ALL bookings ever created
+  // Equivalent to this. But by querying this, we only download the data we
+  // actually need, otherwise we would need ALL bookings ever created
   // (stay.status === 'unconfirmed' && isToday(new Date(stay.startDate))) ||
   // (stay.status === 'checked-in' && isToday(new Date(stay.endDate)))
 
@@ -73,7 +90,7 @@ export async function getStaysTodayActivity() {
 }
 
 export async function updateBooking(id, obj) {
-  const { data, error } = await supabase
+  const {data, error} = await supabase
     .from("bookings")
     .update(obj)
     .eq("id", id)
@@ -89,7 +106,7 @@ export async function updateBooking(id, obj) {
 
 export async function deleteBooking(id) {
   // REMEMBER RLS POLICIES
-  const { data, error } = await supabase.from("bookings").delete().eq("id", id);
+  const {data, error} = await supabase.from("bookings").delete().eq("id", id);
 
   if (error) {
     console.error(error);
