@@ -40,24 +40,23 @@ const Amount = styled.div`
   font-weight: 500;
 `;
 
-function BookingRow({
-                      booking: {
-                        id: bookingId,
-                        created_at,
-                        startDate,
-                        endDate,
-                        numNights,
-                        numGuests,
-                        totalPrice,
-                        status,
-                        guests,
-                        cabins
-                      }
-                    }) {
+function BookingRow(
+  {
+    booking: {
+      id: bookingId,
+      created_at,
+      startDate,
+      endDate,
+      numNights,
+      numGuests,
+      totalPrice,
+      status,
+      guests,
+      cabins
+    }
+  }) {
   const statusToTagName = {
-    unconfirmed  : "blue",
-    "checked-in" : "green",
-    "checked-out": "silver"
+    unconfirmed: "blue", "checked-in": "green", "checked-out": "silver"
   };
 
   return (
@@ -71,9 +70,7 @@ function BookingRow({
 
       <Stacked>
         <span>
-          {isToday(new Date(startDate))
-            ? "Today"
-            : formatDistanceFromNow(startDate)}{" "}
+          {isToday(new Date(startDate)) ? "Today" : formatDistanceFromNow(startDate)}{" "}
           &rarr; {numNights} night stay
         </span>
         <span>
