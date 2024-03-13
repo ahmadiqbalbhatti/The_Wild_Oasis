@@ -1,8 +1,13 @@
-# React + Vite
+# The Wild Oasis - No.1 Booking Services
+## Built with React + Vite + Styled Component + Supabase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Dashboard** for providing booking services. I have used **Supabase**  as a Backend Service in which PostgreSQL is used.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+There are the following features in this Dashboard project:
+- Analytical Overview on Index Page.
+- Basic Settings of Dashboard
+- CRUD for CABINs
+- CRUD for Cabin Bookings
+- Auth using Supabase Authentication Service
+ 
